@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test website</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <!--Sidebar content-->
+      <div class="d-grid gap-2">
+  		<button class="btn btn-primary sideButton" type="button" id="addButton">Add Inventory</button>
+  		<button class="btn btn-primary sideButton" type="button" id="editButton">Edit Inventory</button>
+  		<button class="btn btn-primary sideButton" type="button" id="deleteButton">Delete Inventory</button>
+  		<button class="btn btn-primary sideButton" type="button" id="viewButton">View Inventory</button>
+  		<button class="btn btn-primary sideButton" type="button" id="shipButton">Create Shipment</button>
+	  </div>
+    </div>
+    <div class="col-sm-10">
+      <!--Body content-->
+	<div class="alert alert-danger d-none" id="alertBar" role="alert">
+	</div>
+	 <form id="addForm">
+	  <div class="mb-3">
+	    <label class="form-label">Name</label>
+	    <input type="text" class="form-control" id="addName">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Quantity</label>
+	    <input type="text" class="form-control" id="addQuantity">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Location</label>
+	    <input type="text" class="form-control" id="addLocation">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	<form id="fetchForm" class="d-none">
+	  <div class="mb-3">
+	    <label class="form-label">ID</label>
+	    <input type="text" class="form-control" id="fetchID">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Fetch Details</button>
+	</form>
+
+	<form id="editForm" class="d-none">
+	<div class="mb-3">
+	    <label class="form-label">ID</label>
+	    <input type="text" class="form-control" id="editID" disabled>
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Name</label>
+	    <input type="text" class="form-control" id="editName">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Quantity</label>
+	    <input type="text" class="form-control" id="editQuantity">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Location</label>
+	    <input type="text" class="form-control" id="editLocation">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Update</button>
+	</form>
+
+	<form id="deleteForm" class="d-none">
+	  <div class="mb-3">
+	    <label class="form-label">ID</label>
+	    <input type="text" class="form-control" id="deleteID">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Delete Item</button>
+	</form>
+
+
+	<div id="viewDiv">
+		<table class="table d-none" id="viewTable">
+		  <thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Quantity</th>
+		      <th scope="col">Location</th>
+		    </tr>
+		  </thead>
+		  <tbody id="viewBody">
+		  </tbody>
+		</table>
+	</div>
+
+	<table class="table d-none" id="itemTable">
+	  <thead>
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Ship Quantity</th>
+	      <th scope="col">Inventory Quantity</th>
+	      <th scope="col">Existing Location</th>
+	    </tr>
+	  </thead>
+	  <tbody id="itemBody">
+	  </tbody>
+	</table>
+	<form id="addItem" class="d-none">
+	  <div class="mb-3">
+	    <label class="form-label">ID of Inventory Item:</label>
+	    <input type="text" class="form-control" id="invenID">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Quantity:</label>
+	    <input type="text" class="form-control" id="invenQuantity">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Add Item</button>
+	</form>	
+
+	<form id="createShipment" class="d-none">
+	  <div class="mb-3">
+	    <label class="form-label">Shipment Name</label>
+	    <input type="text" class="form-control" id="shipName">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Shipment Date</label>
+	    <input type="date" class="form-control" id="shipDate">
+	  </div>
+	  <div class="mb-3">
+	    <label class="form-label">Shipment Destination</label>
+	    <input type="text" class="form-control" id="shipDest">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Create Shipment</button>
+	</form>	
+
+	</div>
+
+    </div>
+  </div>
+</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="./home.js"></script>
+</body>
+</html>
