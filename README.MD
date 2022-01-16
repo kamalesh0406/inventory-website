@@ -29,17 +29,17 @@ open frontent/home.html
 
 Before giving an explanation of the complete database model, I want to confirm that the **additional feature I am implementing is the option to create shipments**. (Description of the additional feature from the pdf: ....). 
 
-##### Database Schema
+#### Database Schema
 The database contains three models: Inventory, Shipment, ShipmentProduct. The Inventory model is the basic model that contains the details of the products in the inventory. The shipment model contains a shipment along with the name, date and the destination for the shipment. The ShipmentProduct model maps each shipment with a product from the inventory and additionaly it contains the quantity of the particular product that was present in the given shipment. This is has been created under the assumption that in a single shipment we can add multiple products of different quantity. 
 
 The schema diagram is shown below to clarify the Database schema. 
-![image](./DataBaseSchema.png)
+![database-schema](https://github.com/kamalesh0406/inventory-website/blob/main/DataBaseModel.png)
 
-##### Routes
+#### Routes
 
 I am implementing a REST API for this and this requires the django-restframework library. This library provides some nice features like built-in routes to add, modify, delete and view data based on the model. All we need to do is to define the routes in the inventory/views.py file and the serializers which will handle the conversion of JSON to Python objects in the inventory/serializers.py file. However, for the additional feature I have defined the routes by myself and perform the validation using my own coed. The routes present in the backend are as follows:
 
-###### GET /api/inventory
+##### GET /api/inventory
 
 This route returns an array of all product inventory stored in the database in the JSON format specified below. 
 
@@ -55,7 +55,7 @@ This route returns an array of all product inventory stored in the database in t
 	.
 ]
 ```
-###### POST /api/inventory
+##### POST /api/inventory
 
 This route accepts a JSON object of the details required for creating an inventory object. This route currently has the ability to create only a single product. 
 
@@ -67,7 +67,7 @@ This route accepts a JSON object of the details required for creating an invento
 }
 ```
 
-###### GET /api/inventory/:id
+##### GET /api/inventory/:id
 
 This route fetches the details of a particular product in the inventory based on the id supplied to the route. The format of the data returned by the route is shown below.
 
@@ -79,7 +79,7 @@ This route fetches the details of a particular product in the inventory based on
 }
 ```
 
-###### PUT /api/inventory/:id
+##### PUT /api/inventory/:id
 
 This route edits the details of the particular inventory based on the JSON data supplied in the request. The format of the data required by the route is shown below.
 
@@ -91,12 +91,12 @@ This route edits the details of the particular inventory based on the JSON data 
 }
 ```
 
-###### DELETE /api/inventory/:id
+##### DELETE /api/inventory/:id
 
 This route deletes the particular product from the database based on the ID given.
 
 
-###### POST /api/shipment
+##### POST /api/shipment
 
 This routes accepts a JSON containing the products to be added to the shipment, date of the shipment and the destination of the shipment. The products field is an array which contains JSON objects with the product ID and the quantity of each products. 
 
