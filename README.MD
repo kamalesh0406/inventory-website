@@ -27,7 +27,7 @@ open frontent/home.html
 
 #### Backend Description
 
-Before giving an explanation of the complete database model, I want to confirm that the **additional feature I am implementing is the option to create shipments**. (Description of the additional feature from the pdf: ....). 
+Before giving an explanation of the complete database model, I want to confirm that the **additional feature I am implementing is the option to create shipments**. (Description of the additional feature from the pdf: Ability to create “shipments” and assign inventory to the shipment, and adjust inventory appropriately). 
 
 #### Database Schema
 The database contains three models: Inventory, Shipment, ShipmentProduct. The Inventory model is the basic model that contains the details of the products in the inventory. The shipment model contains a shipment along with the name, date and the destination for the shipment. The ShipmentProduct model maps each shipment with a product from the inventory and additionaly it contains the quantity of the particular product that was present in the given shipment. This is has been created under the assumption that in a single shipment we can add multiple products of different quantity. 
